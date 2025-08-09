@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WASTECH</title>
+  <link rel="stylesheet" href="gamificação/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <header class="top-bar">
+    <div class="logo">
+      <img src="Imagens/logo.png" alt="WASTECH Logo">
+    </div>
+    <div class="contact-info">
+      <span><i class="fas fa-phone"></i> (88) 93423-4323</span>
+      <span><i class="fas fa-envelope"></i> wastech@gmail.com</span>
+      <span><i class="fas fa-map-marker-alt"></i> São Paulo, Brasil</span>
+    </div>
+    <div class="top-icons">
+      <span><i class="fas fa-bell"></i> Notificações</span>
+      <div class="profile-container">
+        <div class="profile">
+          <img src="img/leonardowastech.jpg" alt="Usuário">
+          <span>Leonardo <i class="fas fa-chevron-down dropdown-icon"></i></span>
+        </div>
+        <div class="dropdown-menu">
+          <a href="gamificação.html"><i class="fas fa-user"></i> Meu Perfil</a>
+          <a href="suporte.html"><i class="fas fa-question-circle"></i> Ajuda</a>
+          <div class="divider"></div>
+          <a href="login.html"><i class="fas fa-sign-out-alt"></i> Sair</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="menu-bar">
+    <a href="dashboard.html"><i class="fas fa-home"></i> Início</a>
+    <a href="ferramenta.html"><i class="fas fa-seedling"></i> Plantas</a>
+    <a href="ferramenta.html"><i class="fas fa-calendar-alt"></i> Calendário</a>
+    <a href="suporte.html"><i class="fas fa-headset"></i> Suporte</a>
+    <a href="comunidade.html"><i class="fas fa-book"></i> Guias</a>
+    <a href="sobrenos.html"><i class="fas fa-exclamation-circle"></i> Sobre</a>
+    <input type="text" placeholder="Pesquisar..." class="search-box">
+  </nav>
+
+  <div class="heard2">
+    <img src="Imagens/comuunidade.png" alt="">
+    <h1>Perfil</h1>
+  </div>
+  <div class="logo2">   <img src="Imagens/logo.png" alt="">
+</div>
+
+
+<main>
+    <section class="Perfil" style="position:relative;">
+      <button class="edit-profile-btn" id="editProfileBtn" title="Editar perfil">
+        <i class="fas fa-pencil-alt"></i>
+      </button>
+      <div class="circulo" id="profilePicContainer">
+        <img src="img/leonardowastech.jpg" alt="Foto de perfil" id="profilePic">
+      </div>
+      <div class="dados-centro">
+        <p id="userLevel">Nível 3 – Agricultor Verde</p>
+        <div class="barra">
+          <div class="preencher"></div>
+        </div>
+        <div class="trofeus">
+          <img src="Imagens/agua.png" alt="Gota de água">
+          <img src="Imagens/sol.png" alt="Sol">
+          <img src="Imagens/planta.png" alt="Folha">
+        </div>
+      </div>
+      <div class="pontos">
+        <img src="Imagens/pontos.png" alt="Ícone de moedas">
+        <p>25</p>
+      </div>
+      <!-- Modal para edição de perfil -->
+      <div id="profileModal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn">&times;</span>
+          <h2>Editar Perfil</h2>
+          <div class="profile-pic-container">
+            <img src="img/leonardowastech.jpg" alt="Foto de perfil" id="profilePicPreview" class="profile-pic-preview">
+            <label for="profile-pic-input" class="profile-pic-label">
+              <i class="fas fa-camera"></i> Alterar foto
+            </label>
+            <input type="file" id="profile-pic-input" accept="image/*">
+          </div>
+          <div class="form-group">
+            <label for="userName">Nome</label>
+            <input type="text" id="userName" placeholder="Digite seu nome">
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-secondary" id="cancelEdit">Cancelar</button>
+            <button class="btn btn-primary" id="saveProfile">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <section class="resumo-usuario">
+  <h2>Resumo da Jornada</h2>
+  <div class="card-resumo">
+    <div><strong>XP Total:</strong> 125 XP</div>
+    <div><strong>Missões completas:</strong> 14</div>
+    <div><strong>Dias ativos:</strong> 28</div>
+    <div><strong>Plantas cultivadas:</strong> 5</div>
+    <div><strong>Água economizada:</strong> 132L</div>
+    <div><strong>Entrou em:</strong> Jan 2025</div>
+  </div>
+</section>
+
+<section class="plantas-favoritas">
+  <h2>🌱 Minhas Plantinhas</h2>
+  <div class="plantas-container">
+    <div class="planta-card">
+      <img src="Imagens/alface.png" alt="Alface">
+      <p>Alface</p>
+    </div>
+    <div class="planta-card">
+      <img src="Imagens/manjericão.webp" alt="Manjericão">
+      <p>Manjericão</p>
+    </div>
+    <div class="planta-card">
+      <img src="Imagens/tomateceveja.jpg" alt="Tomate Cereja">
+      <p>Tomate</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="meta-mensal">
+  <h2>🎯 Meta do Mês</h2>
+  <p>Economizar 30L de água até 31 de Agosto.</p>
+  <progress value="12" max="30"></progress>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <section class="Missoes">
+  <h2 class="titulo-missao"> <span>Missões Diárias</span></h2>
+
+  <div class="containermissao">
+    <div class="missao">
+      <div class="icone-texto">
+        <div class="circulo">
+          <img src="Imagens/planta.png" alt="Planta">
+        </div>
+        <div class="texto">
+          <p class="titulo">Complete 5 regas esta semana</p>
+          <p class="progresso">3/5 concluído</p>
+        </div>
+      </div>
+      <div class="xp">+10XP</div>
+    </div>
+
+    <div class="missao">
+      <div class="icone-texto">
+        <div class="circulo">
+          <img src="Imagens/agua.png" alt="Água">
+        </div>
+        <div class="texto">
+          <p class="titulo">Economize 10L de água</p>
+          <p class="progresso">7/10L concluído</p>
+        </div>
+      </div>
+      <div class="xp">+15XP</div>
+    </div>
+  </div>
+</section>
+
+<section class="conquista">
+  <h2 class="titulo-conquista">Conquistas</h2>
+
+  <div class="containerconquista">
+    <div class="item-conquista">
+      <div class="circulo1">
+        <img src="Imagens/planta.png" alt="Iniciante Verde">
+      </div>
+      <p class="descricao">Iniciante Verde</p>
+    </div>
+
+    <div class="item-conquista">
+      <div class="circulo2">
+        <img src="Imagens/onda.png" alt="Poupador de Água">
+      </div>
+      <p class="descricao">Poupador de Água</p>
+    </div>
+
+    <div class="item-conquista">
+      <div class="circulo3">
+        <img src="Imagens/reciclagem.png" alt="Mestre da Reciclagem">
+      </div>
+      <p class="descricao">Mestre da reciclagem</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="ranking-container">
+  <h2>🥇 Ranking Comunitário</h2>
+  <ul class="ranking-list">
+    <li>
+      <span class="posicao">🥇</span>
+      <img src="Imagens/ana.png" alt="Ana Oliveira">
+      <span class="nome">Ana Oliveira</span>
+      <span class="pontos">1280 pontos</span>
+    </li>
+    <li>
+      <span class="posicao">🥈</span>
+      <img src="Imagens/lucas.jpg" alt="">
+      <span class="nome">Lucas Mendes</span>
+      <span class="pontos">1165 pontos</span>
+    </li>
+    <li>
+      <span class="posicao">🥉</span>
+      <img src="Imagens/marienae.jpg" alt="">
+      <span class="nome">Mariana Costa</span>
+      <span class="pontos">1090 pontos</span>
+    </li>
+    <li>
+      <span class="posicao">🌿</span>
+      <img src="Imagens/carlos.jpg" alt="">
+      <span class="nome">Carlos Lima</span>
+      <span class="pontos">975 pontos</span>
+    </li>
+    <li>
+      <span class="posicao">♻️</span>
+      <img src="Imagens/beatriz.avif" alt="">
+      
+      <span class="nome">Beatriz Souza</span>
+      <span class="pontos">910 pontos</span>
+    </li>
+  </ul>
+</section>
+
+
+  </main>
+
+  
+
+   <footer class="footer">
+  <div class="footer-top">
+    <div class="footer-left">
+      <img src="Imagens/logo.png" alt="Wastech Logo" class="logo" />
+    </div>
+    <nav class="footer-nav">
+      <a href="#">Comunidade</a>
+      <a href="#">Sobre Nós</a>
+      <a href="#">Gamificação</a>
+      <a href="#">Página Inicial</a>
+      <a href="#">Dashboard</a>
+    </nav>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/wastechpsvs/"><img src="comunidade/svg/insta-icon.svg" alt="Instagram" /></a>
+      <a href="#"><img src="comunidade/svg/yt-icon.svg" alt="YouTube" /></a>
+    </div>
+  </div>
+  <hr class="footer-divider" />
+  <div class="footer-bottom">
+    <p class="copyright">© 2025 WastTech. Todos os Direitos Reservados.</p>
+    <div class="footer-links">
+      <a href="#">Políticas de Privacidade</a>
+      <a href="#">Termos de Serviço</a>
+    </div>
+    <img src="Imagens/planta3.svg" alt="Ícone Planta" class="footer-icon" />
+  </div>
+</footer>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+  const profile = document.querySelector('.profile');
+  const dropdownMenu = document.querySelector('.dropdown-menu');
+  const dropdownIcon = document.querySelector('.dropdown-icon');
+
+  profile.addEventListener('click', function(e) {
+    e.stopPropagation();
+    dropdownMenu.classList.toggle('show');
+    dropdownIcon.classList.toggle('rotate');
+  });
+
+  // Fechar o menu quando clicar em qualquer lugar fora
+  document.addEventListener('click', function() {
+    dropdownMenu.classList.remove('show');
+    dropdownIcon.classList.remove('rotate');
+  });
+
+  // Evitar que o menu feche quando clicar nele
+  dropdownMenu.addEventListener('click', function(e) {
+    e.stopPropagation();
+  });
+});
+
+
+
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('profileModal');
+  const editBtn = document.getElementById('editProfileBtn');
+  const closeBtn = document.querySelector('.close-btn');
+  const cancelBtn = document.getElementById('cancelEdit');
+  const saveBtn = document.getElementById('saveProfile');
+  const profilePicInput = document.getElementById('profile-pic-input');
+  const profilePicPreview = document.getElementById('profilePicPreview');
+  const profilePic = document.getElementById('profilePic');
+  const userNameInput = document.getElementById('userName');
+  const userLevelText = document.getElementById('userLevel');
+  
+  // Nome do usuário armazenado
+  let userName = 'Leonardo';
+
+  // Abrir modal
+  editBtn.addEventListener('click', function() {
+    userNameInput.value = userName;
+    profilePicPreview.src = profilePic.src;
+    modal.style.display = 'block';
+  });
+
+  // Fechar modal
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+  closeBtn.addEventListener('click', closeModal);
+  cancelBtn.addEventListener('click', closeModal);
+  window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Atualizar preview da foto ao escolher arquivo
+  profilePicInput.addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        profilePicPreview.src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+
+  // Salvar perfil (nome e foto) e salvar no localStorage
+  saveBtn.addEventListener('click', function() {
+    const newName = userNameInput.value.trim();
+    if (!newName) {
+      alert('Por favor, insira um nome válido.');
+      return;
+    }
+    userName = newName;
+
+    // Atualizar nome no menu superior (span > texto, corrigido)
+    const profileNameSpan = document.querySelector('.profile-container .profile span');
+    profileNameSpan.childNodes[0].textContent = userName;
+
+    // Atualizar alt da imagem pequena
+    const profileCircleImg = document.querySelector('.profile-container .profile img');
+    if (profileCircleImg) {
+      profileCircleImg.alt = userName;
+    }
+
+    // Atualizar nome no perfil principal
+    // (Aqui você pode ter algum lugar no perfil principal que exiba o nome, se quiser)
+
+    // Atualizar foto se alterada
+    if (profilePicInput.files.length > 0) {
+      const file = profilePicInput.files[0];
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const newPhoto = event.target.result;
+        profilePic.src = newPhoto;
+        profileCircleImg.src = newPhoto;
+
+        // Salvar foto no localStorage
+        localStorage.setItem('wastech_profilePhoto', newPhoto);
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // Salvar nome no localStorage
+    localStorage.setItem('wastech_userName', userName);
+
+    closeModal();
+    alert('Perfil atualizado com sucesso!');
+  });
+
+  // Carregar dados salvos no localStorage
+  function loadProfileData() {
+    const savedName = localStorage.getItem('wastech_userName');
+    const savedPhoto = localStorage.getItem('wastech_profilePhoto');
+    
+    if (savedName) {
+      userName = savedName;
+      const profileNameSpan = document.querySelector('.profile-container .profile span');
+      profileNameSpan.childNodes[0].textContent = userName;
+    }
+    
+    if (savedPhoto) {
+      profilePic.src = savedPhoto;
+      const profileCircleImg = document.querySelector('.profile-container .profile img');
+      if (profileCircleImg) {
+        profileCircleImg.src = savedPhoto;
+      }
+    }
+  }
+
+  loadProfileData();
+
+  // Atualizar nível de usuário (exemplo)
+  function updateUserLevel() {
+    const userXP = 125; // Exemplo fixo
+    if (userXP >= 200) {
+      userLevelText.textContent = 'Nível 5 – Mestre Verde';
+    } else if (userXP >= 150) {
+      userLevelText.textContent = 'Nível 4 – Especialista Ecológico';
+    } else {
+      userLevelText.textContent = 'Nível 3 – Agricultor Verde';
+    }
+  }
+  updateUserLevel();
+});
+
+</script>
+  
+  
+</body>
+</html>
+
+
+  
+  
+
+ 
+
+<script src="notificações.js"></script>
+
+   

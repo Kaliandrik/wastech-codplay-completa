@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WASTECH</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+    <header class="top-bar">
+        <div class="logo">
+            <img src="img/logowastech.jpeg" alt="WASTECH Logo">
+        </div>
+        <div class="contact-info">
+            <span><i class="fas fa-phone"></i> (88) 93423-4323</span>
+            <span><i class="fas fa-envelope"></i> wastech@gmail.com</span>
+            <span><i class="fas fa-map-marker-alt"></i> São Paulo, Brasil</span>
+        </div>
+        <div class="top-icons">
+            <span><i class="fas fa-bell"></i> Notificações</span>
+            <div class="profile-container">
+                <div class="profile">
+                    <img src="img/leonardowastech.jpg" alt="Usuário">
+                    <span>Leonardo <i class="fas fa-chevron-down dropdown-icon"></i></span>
+                </div>
+                <div class="dropdown-menu">
+                    <a href="gamificação.html"><i class="fas fa-user"></i> Meu Perfil</a>
+                    <a href="suporte.html"><i class="fas fa-question-circle"></i> Ajuda</a>
+                    <div class="divider"></div>
+                    <a href="login.html"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="menu-bar">
+        <a href="dashboard.html"><i class="fas fa-home"></i> Início</a>
+        <a href="ferramenta.html"><i class="fas fa-seedling"></i> Plantas</a>
+        <a href="ferramenta.html"><i class="fas fa-calendar-alt"></i> Calendário</a>
+        <a href="suporte.html"><i class="fas fa-headset"></i> Suporte</a>
+        <a href="comunidade.html"><i class="fas fa-book"></i> Guias</a>
+        <a href="sobrenos.html"><i class="fas fa-exclamation-circle"></i> Sobre</a>
+        <input type="text" placeholder="Pesquisar..." class="search-box">
+    </nav>
+
+    <!-- Content -->
+    <div class="content-wrapper">
+        <section class="welcome-banner">
+            <div class="welcome-text">
+                <h2>Bom dia, Leonardo!</h2>
+                <p>Veja como está sua horta hoje</p>
+            </div>
+            <div class="quick-stats">
+                <div class="stat-item">
+                    <i class="fas fa-seedling"></i>
+                    <div>
+                        <span class="stat-value">3</span>
+                        <span class="stat-label">Plantas ativas</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <div>
+                        <span class="stat-value">3</span>
+                        <span class="stat-label">Tarefas hoje</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-piggy-bank"></i>
+                    <div>
+                        <span class="stat-value">R$ 127</span>
+                        <span class="stat-label">Economizados</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="main-grid">
+            <!-- Calendar Card -->
+            <section class="card calendar-card">
+                <style>
+                    /* Card de Ferramentas */
+                    .tools-container {
+                        max-width: 600px;
+                        margin: 0 auto;
+                    }
+
+                    .tools-card {
+                        background: white;
+                        border-radius: 12px;
+                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                        overflow: hidden;
+                    }
+
+                    .card-header {
+                        padding: 20px;
+                        border-bottom: 1px solid #eaeaea;
+                    }
+
+                    .card-header h2 {
+                        color: #2c3e50;
+                        font-size: 1.5rem;
+                        margin-bottom: 5px;
+                    }
+
+                    .card-subtitle {
+                        color: #7f8c8d;
+                        font-size: 0.9rem;
+                    }
+
+                    /* Grid de Ferramentas */
+                    .tools-grid {
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr);
+                        gap: 15px;
+                        padding: 20px;
+                    }
+
+                    .tool-item {
+                        text-align: center;
+                        padding: 15px;
+                        border-radius: 8px;
+                        transition: all 0.3s ease;
+                    }
+
+                    .tool-item:hover {
+                        background-color: #f8f9fa;
+                    }
+
+                    .tool-icon {
+                        width: 50px;
+                        height: 50px;
+                        margin: 0 auto 10px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 1.2rem;
+                        color: white;
+                    }
+
+                    .tool-icon.calendar {
+                        background-color: #4CAF50;
+                    }
+
+                    .tool-icon.weather {
+                        background-color: #2196F3;
+                    }
+
+                    .tool-icon.calculator {
+                        background-color: #FF9800;
+                    }
+
+                    .tool-item h3 {
+                        font-size: 1rem;
+                        color: #34495e;
+                        margin-bottom: 5px;
+                    }
+
+                    .tool-item p {
+                        font-size: 0.8rem;
+                        color: #7f8c8d;
+                        margin-bottom: 10px;
+                    }
+
+                    /* Botão de Ação */
+                    .btn-access {
+                        width: calc(100% - 40px);
+                        margin: 0 20px 20px;
+                        padding: 12px;
+                        background: linear-gradient(135deg, #4CAF50, #2E7D32);
+                        color: white;
+                        border: none;
+                        border-radius: 8px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: all 0.3s;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 8px;
+                    }
+
+                    .btn-access:hover {
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 8px rgba(46, 125, 50, 0.3);
+                    }
+                </style>
+                </head>
+
+                <body>
+                    <div class="tools-container">
+                        <div class="tools-card">
+                            <div class="card-header">
+                                <h2><i class="fas fa-tools"></i> Ferramentas Agrícolas</h2>
+                                <p class="card-subtitle">Tudo o que você precisa para planejar sua plantação</p>
+                            </div>
+
+                            <div class="tools-grid">
+                                <div class="tool-item">
+                                    <div class="tool-icon calendar">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <h3>Calendário</h3>
+                                    <p>Épocas ideais de plantio</p>
+                                </div>
+
+                                <div class="tool-item">
+                                    <div class="tool-icon weather">
+                                        <i class="fas fa-cloud-sun-rain"></i>
+                                    </div>
+                                    <h3>Clima</h3>
+                                    <p>Previsão para sua região</p>
+                                </div>
+
+                                <div class="tool-item">
+                                    <div class="tool-icon calculator">
+                                        <i class="fas fa-calculator"></i>
+                                    </div>
+                                    <h3>Calculadora</h3>
+                                    <p>Necessidades de irrigação</p>
+                                </div>
+                            </div>
+
+                           <a href="ferramenta.html">
+                             <button class="btn-access" onclick="window.location.href='ferramentas-completas.html'">
+                                <i class="fas fa-arrow-right"></i> Acessar Todas as Ferramentas
+                            </button>
+                           </a>
+                            <!-- Descrição das Ferramentas -->
+<div class="tools-description">
+    <div class="description-content">
+        <div class="description-text">
+            <h3><i class="fas fa-seedling"></i> O que você encontra nas Ferramentas Agrícolas?</h3>
+            <ul class="features-list">
+                <li><i class="fas fa-check-circle"></i> <strong>Calendário de Plantio:</strong> Datas ideais para cultivo de 50+ espécies</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Monitor Climático:</strong> Previsão do tempo com alertas para sua região</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Veja o que plantar na sua região:</strong> Veja o que plantar de acordo com sua localidade</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Dicas personalizadas:</strong> Dicas personalizadas de acordo com sua região</li>
+            </ul>
+            <p class="disclaimer">*Disponível para todas as regiões do Brasil</p>
+        </div>
+        
+    </div>
+</div>
+
+                        </div>
+                    </div>
+
+                    <script>
+                        // Função para redirecionamento
+                        function navigateToTools() {
+                            window.location.href = 'ferramentas-completas.html';
+                        }
+
+                        // Adiciona evento de clique ao botão
+                        document.querySelector('.btn-access').addEventListener('click', navigateToTools);
+                    </script>
+
+            </section>
+
+            
+
+
+            <!-- Progress Card -->
+            <section class="card progress-card">
+                <div class="card-header">
+                    <h3><i class="fas fa-chart-line"></i> Minhas plantas</h3>
+                    <div class="card-actions">
+                        <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="tabs">
+                        <button class="tab-btn active">Ativas</button>
+                        <button class="tab-btn">Colhidas</button>
+                        <button class="tab-btn">Todas</button>
+                    </div>
+
+                    <div class="plant-progress-list">
+                        <div class="plant-progress-item">
+                            <div class="plant-info">
+                                <div>
+                                    <h5>Tomate Cereja</h5>
+                                    <span class="plant-date">Plantado em: 15/05/2023</span>
+                                    <span class="plant-type">Hortaliça</span>
+                                </div>
+                            </div>
+                            <div class="progress-container">
+                                <div class="progress-info">
+                                    <span>65% completo</span>
+                                    <span>~15 dias restantes</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 65%"></div>
+                                </div>
+                            </div>
+                            <div class="plant-actions">
+                                <button class="btn-action photo-btn">
+                                    <i class="fas fa-camera"></i> Foto
+                                </button>
+                                <button class="btn-action edit-btn">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-action delete-btn">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="plant-progress-item">
+                            <div class="plant-info">
+                                <div>
+                                    <h5>Alface Crespa</h5>
+                                    <span class="plant-date">Plantado em: 20/05/2023</span>
+                                    <span class="plant-type">Folhosa</span>
+                                </div>
+                            </div>
+                            <div class="progress-container">
+                                <div class="progress-info">
+                                    <span>90% completo</span>
+                                    <span>~3 dias restantes</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="plant-actions">
+                                <button class="btn-action photo-btn">
+                                    <i class="fas fa-camera"></i> Foto
+                                </button>
+                                <button class="btn-action edit-btn">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-action delete-btn">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="plant-progress-item">
+                            <div class="plant-info">
+                                <div>
+                                    <h5>Manjericão</h5>
+                                    <span class="plant-date">Plantado em: 01/06/2023</span>
+                                    <span class="plant-type">Erva Aromática</span>
+                                </div>
+                            </div>
+                            <div class="progress-container">
+                                <div class="progress-info">
+                                    <span>30% completo</span>
+                                    <span>~40 dias restantes</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 30%"></div>
+                                </div>
+                            </div>
+                            <div class="plant-actions">
+                                <button class="btn-action photo-btn">
+                                    <i class="fas fa-camera"></i> Foto
+                                </button>
+                                <button class="btn-action edit-btn">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-action delete-btn">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn-add">
+                        <i class="fas fa-plus"></i> Adicionar Planta
+                    </button>
+                </div>
+            </section>
+
+            <!-- Modal de Adição/Edição -->
+            <div class="plant-modal" style="display: none;">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h3><i class="fas fa-seedling"></i> <span class="modal-title">Adicionar Nova Planta</span></h3>
+
+                    <div class="form-group">
+                        <label for="plant-name">Nome da Planta <span class="required">*</span></label>
+                        <input type="text" id="plant-name" class="form-control" placeholder="Ex: Tomate Cereja"
+                            required>
+                        <small class="error-message">Por favor, insira o nome da planta</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="plant-type">Tipo de Planta <span class="required">*</span></label>
+                        <select id="plant-type" class="form-control" required>
+                            <option value="">Selecione um tipo</option>
+                            <option value="Hortaliça">Hortaliça</option>
+                            <option value="Fruta">Fruta</option>
+                            <option value="Erva Aromática">Erva Aromática</option>
+                            <option value="Legume">Legume</option>
+                            <option value="Folhosa">Folhosa</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                        <small class="error-message">Por favor, selecione o tipo de planta</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="plant-date">Data de Plantio <span class="required">*</span></label>
+                        <input type="date" id="plant-date" class="form-control" required>
+                        <small class="error-message">Por favor, selecione a data de plantio</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="plant-progress">Progresso Atual: <span id="progress-value">0</span>%</label>
+                        <input type="range" id="plant-progress" min="0" max="100" value="0" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="plant-notes">Observações</label>
+                        <textarea id="plant-notes" class="form-control" rows="3"
+                            placeholder="Registre informações importantes sobre o cultivo"></textarea>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-cancel">Cancelar</button>
+                        <button type="button" class="btn btn-confirm">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal de Foto -->
+            <div class="photo-modal" style="display: none;">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h3><i class="fas fa-camera"></i> Adicionar Foto</h3>
+
+                    <div class="photo-preview">
+                        <img id="photo-preview-img" src="" alt="Pré-visualização" style="display: none;">
+                        <div id="photo-placeholder">
+                            <i class="fas fa-image"></i>
+                            <p>Nenhuma imagem selecionada</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="photo-date">Data da Foto</label>
+                        <input type="date" id="photo-date" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="photo-description">Descrição</label>
+                        <input type="text" id="photo-description" class="form-control" placeholder="Descreva esta foto">
+                    </div>
+
+                    <div class="upload-options">
+                        <input type="file" id="photo-upload" accept="image/*" style="display: none;">
+                        <button type="button" class="btn btn-upload">
+                            <i class="fas fa-upload"></i> Selecionar Foto
+                        </button>
+                        <button type="button" class="btn btn-capture" disabled>
+                            <i class="fas fa-camera"></i> Tirar Foto
+                        </button>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-cancel">Cancelar</button>
+                        <button type="button" class="btn btn-confirm" disabled>Salvar Foto</button>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                /* Estilos para os modais e elementos novos */
+                .plant-modal,
+                .photo-modal {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: rgba(0, 0, 0, 0.7);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 1000;
+                    padding: 20px;
+                }
+
+                .modal-content {
+                    background-color: white;
+                    border-radius: 10px;
+                    padding: 25px;
+                    width: 100%;
+                    max-width: 500px;
+                    max-height: 90vh;
+                    overflow-y: auto;
+                    position: relative;
+                }
+
+                .close-modal {
+                    position: absolute;
+                    top: 15px;
+                    right: 20px;
+                    font-size: 24px;
+                    cursor: pointer;
+                    color: #666;
+                }
+
+                .modal-content h3 {
+                    color: #4CAF50;
+                    margin-bottom: 20px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+
+                .form-group {
+                    margin-bottom: 20px;
+                }
+
+                .form-group label {
+                    display: block;
+                    margin-bottom: 8px;
+                    font-weight: 600;
+                    color: #333;
+                }
+
+                .form-control {
+                    width: 100%;
+                    padding: 10px 12px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    font-size: 15px;
+                }
+
+                .form-control:focus {
+                    outline: none;
+                    border-color: #4CAF50;
+                    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+                }
+
+                .error-message {
+                    color: #e74c3c;
+                    font-size: 13px;
+                    margin-top: 5px;
+                    display: none;
+                }
+
+                .required {
+                    color: #e74c3c;
+                }
+
+                .modal-footer {
+                    display: flex;
+                    justify-content: flex-end;
+                    gap: 10px;
+                    margin-top: 25px;
+                }
+
+                .btn {
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-weight: 600;
+                    transition: all 0.3s;
+                }
+
+                .btn-cancel {
+                    background-color: #f5f5f5;
+                    border: 1px solid #ddd;
+                    color: #333;
+                }
+
+                .btn-confirm {
+                    background-color: #4CAF50;
+                    border: 1px solid #4CAF50;
+                    color: white;
+                }
+
+                .btn:hover {
+                    opacity: 0.9;
+                    transform: translateY(-2px);
+                }
+
+                .plant-actions {
+                    display: flex;
+                    gap: 5px;
+                }
+
+                .btn-action {
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    padding: 8px;
+                    border-radius: 5px;
+                    color: #666;
+                    transition: all 0.2s;
+                }
+
+                .btn-action:hover {
+                    background-color: #f0f0f0;
+                    color: #4CAF50;
+                }
+
+                .delete-btn:hover {
+                    color: #e74c3c;
+                }
+
+                .photo-preview {
+                    width: 100%;
+                    height: 200px;
+                    border: 2px dashed #ddd;
+                    border-radius: 5px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-bottom: 20px;
+                    overflow: hidden;
+                    position: relative;
+                }
+
+                #photo-preview-img {
+                    max-width: 100%;
+                    max-height: 100%;
+                    object-fit: contain;
+                }
+
+                #photo-placeholder {
+                    text-align: center;
+                    color: #999;
+                }
+
+                #photo-placeholder i {
+                    font-size: 40px;
+                    margin-bottom: 10px;
+                }
+
+                .upload-options {
+                    display: flex;
+                    gap: 10px;
+                    margin-bottom: 20px;
+                }
+
+                .btn-upload,
+                .btn-capture {
+                    padding: 8px 15px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+
+                .btn-upload {
+                    background-color: #3498db;
+                    color: white;
+                    border: none;
+                }
+
+                .btn-capture {
+                    background-color: #f5f5f5;
+                    border: 1px solid #ddd;
+                    color: #333;
+                }
+
+                .plant-type {
+                    display: inline-block;
+                    background-color: #e8f5e9;
+                    color: #4CAF50;
+                    padding: 2px 8px;
+                    border-radius: 10px;
+                    font-size: 12px;
+                    margin-top: 5px;
+                }
+            </style>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Elementos do DOM
+                    const btnAdd = document.querySelector('.btn-add');
+                    const plantProgressList = document.querySelector('.plant-progress-list');
+                    const plantModal = document.querySelector('.plant-modal');
+                    const photoModal = document.querySelector('.photo-modal');
+
+                    // Variáveis de estado
+                    let currentPlantId = null;
+                    let isEditing = false;
+                    let currentPlantElement = null;
+
+                    // Abrir modal de adição
+                    btnAdd.addEventListener('click', function () {
+                        openPlantModal();
+                    });
+
+                    // Delegar eventos para os botões de ação
+                    plantProgressList.addEventListener('click', function (e) {
+                        const plantItem = e.target.closest('.plant-progress-item');
+                        if (!plantItem) return;
+
+                        currentPlantId = plantItem.dataset.id || Date.now().toString();
+                        currentPlantElement = plantItem;
+
+                        if (e.target.closest('.edit-btn')) {
+                            isEditing = true;
+                            openPlantModal(plantItem);
+                        }
+
+                        if (e.target.closest('.delete-btn')) {
+                            if (confirm('Tem certeza que deseja remover esta planta?')) {
+                                plantItem.remove();
+                            }
+                        }
+
+                        if (e.target.closest('.photo-btn')) {
+                            openPhotoModal(plantItem);
+                        }
+                    });
+
+                    // Fechar modais
+                    document.querySelectorAll('.close-modal, .btn-cancel').forEach(btn => {
+                        btn.addEventListener('click', closeAllModals);
+                    });
+
+                    // Fechar ao clicar fora
+                    [plantModal, photoModal].forEach(modal => {
+                        modal.addEventListener('click', function (e) {
+                            if (e.target === modal) {
+                                closeAllModals();
+                            }
+                        });
+                    });
+
+                    // Atualizar valor do progresso
+                    const progressInput = document.getElementById('plant-progress');
+                    const progressValue = document.getElementById('progress-value');
+
+                    progressInput.addEventListener('input', function () {
+                        progressValue.textContent = this.value;
+                    });
+
+                    // Confirmar ação no modal de planta
+                    document.querySelector('.plant-modal .btn-confirm').addEventListener('click', savePlant);
+
+                    // Upload de foto
+                    const photoUpload = document.getElementById('photo-upload');
+                    const photoPreviewImg = document.getElementById('photo-preview-img');
+                    const photoPlaceholder = document.getElementById('photo-placeholder');
+                    const photoConfirmBtn = document.querySelector('.photo-modal .btn-confirm');
+
+                    photoUpload.addEventListener('change', function (e) {
+                        const file = e.target.files[0];
+                        if (file) {
+                            const reader = new FileReader();
+                            reader.onload = function (event) {
+                                photoPreviewImg.src = event.target.result;
+                                photoPreviewImg.style.display = 'block';
+                                photoPlaceholder.style.display = 'none';
+                                photoConfirmBtn.disabled = false;
+                            };
+                            reader.readAsDataURL(file);
+                        }
+                    });
+
+                    document.querySelector('.btn-upload').addEventListener('click', function () {
+                        photoUpload.click();
+                    });
+
+                    // Confirmar foto
+                    photoConfirmBtn.addEventListener('click', savePhoto);
+
+                    // Funções
+                    function openPlantModal(plantItem = null) {
+                        const modal = plantModal;
+                        const today = new Date().toISOString().split('T')[0];
+
+                        if (plantItem) {
+                            // Modo edição
+                            document.querySelector('.modal-title').textContent = 'Editar Planta';
+                            document.getElementById('plant-name').value = plantItem.querySelector('h5').textContent;
+                            document.getElementById('plant-type').value = plantItem.querySelector('.plant-type').textContent;
+                            document.getElementById('plant-date').value = formatDateForInput(plantItem.querySelector('.plant-date').textContent.split(': ')[1]);
+                            document.getElementById('plant-progress').value = parseInt(plantItem.querySelector('.progress-info span').textContent);
+                            progressValue.textContent = parseInt(plantItem.querySelector('.progress-info span').textContent);
+                        } else {
+                            // Modo adição
+                            document.querySelector('.modal-title').textContent = 'Adicionar Nova Planta';
+                            document.getElementById('plant-name').value = '';
+                            document.getElementById('plant-type').value = '';
+                            document.getElementById('plant-date').value = today;
+                            document.getElementById('plant-progress').value = 0;
+                            progressValue.textContent = '0';
+                            currentPlantId = Date.now().toString();
+                            isEditing = false;
+                        }
+
+                        // Limpar erros
+                        document.querySelectorAll('.error-message').forEach(el => {
+                            el.style.display = 'none';
+                        });
+
+                        modal.style.display = 'flex';
+                        document.getElementById('plant-name').focus();
+                    }
+
+                    function openPhotoModal(plantItem) {
+                        const modal = photoModal;
+                        const today = new Date().toISOString().split('T')[0];
+
+                        document.getElementById('photo-date').value = today;
+                        document.getElementById('photo-description').value = '';
+                        photoPreviewImg.src = '';
+                        photoPreviewImg.style.display = 'none';
+                        photoPlaceholder.style.display = 'flex';
+                        photoConfirmBtn.disabled = true;
+                        photoUpload.value = '';
+
+                        currentPlantId = plantItem.dataset.id;
+                        currentPlantElement = plantItem;
+                        modal.style.display = 'flex';
+                    }
+
+                    function closeAllModals() {
+                        plantModal.style.display = 'none';
+                        photoModal.style.display = 'none';
+                    }
+
+                    function savePlant() {
+                        const nameInput = document.getElementById('plant-name');
+                        const typeInput = document.getElementById('plant-type');
+                        const dateInput = document.getElementById('plant-date');
+                        const progressInput = document.getElementById('plant-progress');
+
+                        const name = nameInput.value.trim();
+                        const type = typeInput.value;
+                        const date = dateInput.value;
+                        const progress = progressInput.value;
+                        const notes = document.getElementById('plant-notes').value;
+
+                        // Validação
+                        let isValid = true;
+
+                        if (!name) {
+                            showError(nameInput, 'Por favor, insira o nome da planta');
+                            isValid = false;
+                        }
+
+                        if (!type) {
+                            showError(typeInput, 'Por favor, selecione o tipo de planta');
+                            isValid = false;
+                        }
+
+                        if (!date) {
+                            showError(dateInput, 'Por favor, selecione a data de plantio');
+                            isValid = false;
+                        }
+
+                        if (!isValid) return;
+
+                        const formattedDate = new Date(date).toLocaleDateString('pt-BR');
+                        const daysRemaining = Math.round((100 - progress) / 5);
+
+                        const plantHTML = `
+            <div class="plant-progress-item" data-id="${currentPlantId}">
+                <div class="plant-info">
+                    <div>
+                        <h5>${name}</h5>
+                        <span class="plant-date">Plantado em: ${formattedDate}</span>
+                        <span class="plant-type">${type}</span>
+                    </div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-info">
+                        <span>${progress}% completo</span>
+                        <span>~${daysRemaining} dias restantes</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${progress}%"></div>
+                    </div>
+                </div>
+                <div class="plant-actions">
+                    <button class="btn-action photo-btn">
+                        <i class="fas fa-camera"></i> Foto
+                    </button>
+                    <button class="btn-action edit-btn">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn-action delete-btn">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+                <div class="plant-photos"></div>
+            </div>
+        `;
+
+                        if (isEditing && currentPlantElement) {
+                            // Preserva as fotos existentes
+                            const existingPhotos = currentPlantElement.querySelector('.plant-photos');
+                            if (existingPhotos) {
+                                const newPlantElement = createElementFromHTML(plantHTML);
+                                newPlantElement.querySelector('.plant-photos').innerHTML = existingPhotos.innerHTML;
+                                currentPlantElement.replaceWith(newPlantElement);
+                            } else {
+                                currentPlantElement.outerHTML = plantHTML;
+                            }
+                        } else {
+                            // Adiciona nova planta
+                            plantProgressList.insertAdjacentHTML('beforeend', plantHTML);
+                        }
+
+                        closeAllModals();
+                    }
+
+                    function savePhoto() {
+                        if (!photoPreviewImg.src || photoPreviewImg.style.display === 'none') {
+                            alert('Por favor, selecione uma foto primeiro!');
+                            return;
+                        }
+
+                        const photoDate = document.getElementById('photo-date').value || 'Sem data';
+                        const photoDescription = document.getElementById('photo-description').value || 'Sem descrição';
+
+                        // Cria ou obtém o container de fotos da planta
+                        let photosContainer = currentPlantElement.querySelector('.plant-photos');
+                        if (!photosContainer) {
+                            photosContainer = document.createElement('div');
+                            photosContainer.className = 'plant-photos';
+                            currentPlantElement.appendChild(photosContainer);
+                        }
+
+                        // Adiciona a nova foto
+                        const photoHTML = `
+            <div class="plant-photo">
+                <img src="${photoPreviewImg.src}" alt="${photoDescription}">
+                <div class="photo-info">
+                    <span class="photo-date">${formatPhotoDate(photoDate)}</span>
+                    <span class="photo-desc">${photoDescription}</span>
+                </div>
+            </div>
+        `;
+
+                        photosContainer.insertAdjacentHTML('afterbegin', photoHTML);
+                        closeAllModals();
+                    }
+
+                    function showError(inputElement, message) {
+                        const errorElement = inputElement.nextElementSibling;
+                        errorElement.textContent = message;
+                        errorElement.style.display = 'block';
+                        inputElement.focus();
+                    }
+
+                    function formatDateForInput(dateString) {
+                        const [day, month, year] = dateString.split('/');
+                        return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+                    }
+
+                    function formatPhotoDate(dateString) {
+                        if (!dateString) return 'Sem data';
+                        const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+                        return new Date(dateString).toLocaleDateString('pt-BR', options);
+                    }
+
+                    function createElementFromHTML(htmlString) {
+                        const div = document.createElement('div');
+                        div.innerHTML = htmlString.trim();
+                        return div.firstChild;
+                    }
+
+                    // Adiciona os estilos para as fotos
+                    const photoStyles = `
+        <style>
+            .plant-photos {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-top: 15px;
+                padding-top: 15px;
+                border-top: 1px solid #eee;
+            }
+            
+            .plant-photo {
+                width: 100px;
+                height: 100px;
+                position: relative;
+                overflow: hidden;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                cursor: pointer;
+            }
+            
+            .plant-photo img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.3s;
+            }
+            
+            .plant-photo:hover img {
+                transform: scale(1.05);
+            }
+            
+            .photo-info {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: rgba(0,0,0,0.7);
+                color: white;
+                padding: 5px;
+                font-size: 10px;
+                transform: translateY(100%);
+                transition: transform 0.3s;
+            }
+            
+            .plant-photo:hover .photo-info {
+                transform: translateY(0);
+            }
+            
+            .photo-date {
+                display: block;
+                font-weight: bold;
+            }
+            
+            .photo-desc {
+                display: block;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        </style>
+    `;
+
+                    document.head.insertAdjacentHTML('beforeend', photoStyles);
+
+                    // Inicializa a data atual no campo de data
+                    const today = new Date().toISOString().split('T')[0];
+                    document.getElementById('plant-date').value = today;
+                });
+            </script>
+
+
+
+
+
+            <!-- Savings Card -->
+            <section class="card savings-card">
+                <div class="card-header">
+                    <h3><i class="fas fa-piggy-bank"></i> Economia Estimada</h3>
+                    <div class="card-actions">
+                        <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="savings-display">
+                        <div class="savings-amount">
+                            <span class="currency">R$</span>
+                            <span class="amount">127,50</span>
+                        </div>
+                        <div class="savings-period">este mês</div>
+                    </div>
+
+                    <div class="savings-comparison">
+                        <div class="comparison-item">
+                            <div class="comparison-label">
+                                <i class="fas fa-shopping-basket"></i>
+                                <span>Supermercado</span>
+                            </div>
+                            <div class="comparison-value">R$ 250,00</div>
+                        </div>
+                        <div class="comparison-item highlight">
+                            <div class="comparison-label">
+                                <i class="fas fa-home"></i>
+                                <span>Sua Horta</span>
+                            </div>
+                            <div class="comparison-value">R$ 122,50</div>
+                        </div>
+                    </div>
+
+                    <div class="savings-chart">
+                        <div class="chart-bar" style="height: 30%">
+                            <span>Tomate</span>
+                            <div class="bar-fill" style="height: 100%"></div>
+                            <span class="bar-value">R$ 42,00</span>
+                        </div>
+                        <div class="chart-bar" style="height: 25%">
+                            <span>Alface</span>
+                            <div class="bar-fill" style="height: 100%"></div>
+                            <span class="bar-value">R$ 35,50</span>
+                        </div>
+                        <div class="chart-bar" style="height: 45%">
+                            <span>Manjericão</span>
+                            <div class="bar-fill" style="height: 100%"></div>
+                            <span class="bar-value">R$ 50,00</span>
+                        </div>
+                    </div>
+
+                    <div class="savings-tip">
+                        <i class="fas fa-lightbulb"></i>
+                        <p>Você poderia economizar mais R$ 85 plantando cenoura e rúcula!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Achievements Card -->
+            <section class="card achievements-card">
+                <div class="card-header">
+                    <h3><i class="fas fa-trophy"></i> Conquistas</h3>
+                    <div class="card-actions">
+                        <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="achievements-progress">
+                        <div class="progress-circle">
+                            <svg width="80" height="80" viewBox="0 0 36 36" class="circular-chart">
+                                <path class="circle-bg" d="M18 2.0845
+                                          a 15.9155 15.9155 0 0 1 0 31.831
+                                          a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <path class="circle-fill" stroke-dasharray="65, 100" d="M18 2.0845
+                                          a 15.9155 15.9155 0 0 1 0 31.831
+                                          a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <text x="18" y="20.5" class="percentage">65%</text>
+                            </svg>
+                        </div>
+                        <div class="progress-info">
+                            <h5>Nível 3 - Agricultor verde</h5>
+                            <p>50 XP para o próximo nível</p>
+                            <div class="xp-bar">
+                                <div class="xp-fill" style="width: 65%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="achievements-grid">
+                        <div class="achievement earned">
+                            <div class="achievement-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <h6>Primeiros Passos</h6>
+                                <span>Plantou sua primeira muda</span>
+                            </div>
+                        </div>
+                        <div class="achievement earned">
+                            <div class="achievement-icon">
+                                <i class="fas fa-water"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <h6>Regador Dedicado</h6>
+                                <span>Regou por 7 dias seguidos</span>
+                            </div>
+                        </div>
+                        <div class="achievement">
+                            <div class="achievement-icon">
+                                <i class="fas fa-carrot"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <h6>Colheita Farta</h6>
+                                <span>Colheu 5 vegetais diferentes</span>
+                            </div>
+                        </div>
+                        <div class="achievement">
+                            <div class="achievement-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <h6>3 Meses</h6>
+                                <span>Manteve sua horta por 3 meses</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="gamificação.html">
+                        <button class="btn-view-all">
+                        Ver todas as conquistas <i class="fas fa-chevron-right"></i>
+                    </button>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Photos Card -->
+            <section class="card photos-card">
+                <div class="card-header">
+                    <h3><i class="fas fa-users"></i> Comunidade WASTECH</h3>
+        <div class="card-actions">
+            <button class="btn-icon" id="community-settings"><i class="fas fa-cog"></i></button>
+        </div>
+    </div>
+    
+    <div class="card-content">
+        <div class="community-highlights">
+            <!-- Destaque 1: Dúvidas Frequentes -->
+            <div class="highlight-card" onclick="openSection('faq')">
+                <div class="highlight-icon" style="background-color: #4CAF50;">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <div class="highlight-content">
+                    <h4>Dúvidas Frequentes</h4>
+                    <p>Encontre respostas para perguntas comuns sobre cultivo</p>
+                    <span class="highlight-stats">+120 dúvidas respondidas</span>
+                </div>
+            </div>
+            
+            <!-- Destaque 2: Tutoriais -->
+            <div class="highlight-card" onclick="openSection('tutorials')">
+                <div class="highlight-icon" style="background-color: #2196F3;">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="highlight-content">
+                    <h4>Guia de Cultivo</h4>
+                    <p>Tutoriais passo a passo para iniciantes</p>
+                    <span class="highlight-stats">15 materiais disponíveis</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Seção de Interação -->
+        <div class="community-interaction">
+            <div class="interaction-header">
+                <h4><i class="fas fa-comments"></i> Últimas Discussões</h4>
+                <button class="btn-text" onclick="openDiscussion()">Ver todas</button>
+            </div>
+            
+            <div class="discussion-list">
+                <div class="discussion-item">
+                    <div class="discussion-content">
+                        <h5>Como combater pulgões naturalmente?</h5>
+                        <p class="discussion-meta">Por: Ana Silva • 3 dias atrás</p>
+                    </div>
+                    <span class="discussion-comments">8 respostas</span>
+                </div>
+                
+                <div class="discussion-item">
+                    <div class="discussion-content">
+                        <h5>Melhor adubo para hortaliças</h5>
+                        <p class="discussion-meta">Por: Carlos Oliveira • 1 semana atrás</p>
+                    </div>
+                    <span class="discussion-comments">12 respostas</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Botão Principal -->
+        <a href="comunidade.html">
+            <button class="btn-community" onclick="openCommunity()">
+            <i class="fas fa-door-open"></i> Acessar Comunidade Completa
+        </button>
+        </a>
+                </div>
+            </section>
+
+            <style>
+                /* Estilos para o card de fotos melhorado */
+                .photos-card {
+                    position: relative;
+                }
+
+                .photo-controls {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 15px;
+                }
+
+                .photo-filter .filter-select {
+                    padding: 8px 12px;
+                    border-radius: 20px;
+                    border: 1px solid #ddd;
+                    background-color: #f9f9f9;
+                    font-size: 14px;
+                }
+
+                .photo-slider-btn {
+                    background-color: #f0f0f0;
+                    border-radius: 50%;
+                    width: 32px;
+                    height: 32px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-left: 8px;
+                }
+
+                .photo-timeline {
+                    display: flex;
+                    gap: 15px;
+                    overflow-x: auto;
+                    padding-bottom: 10px;
+                    scrollbar-width: thin;
+                }
+
+                .photo-item {
+                    min-width: 250px;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                    transition: all 0.3s ease;
+                    background: white;
+                }
+
+                .photo-item.featured {
+                    border: 2px solid #4CAF50;
+                }
+
+                .photo-item:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                }
+
+                .photo-container {
+                    position: relative;
+                    height: 180px;
+                    overflow: hidden;
+                }
+
+                .photo-container img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.5s ease;
+                }
+
+                .photo-item:hover .photo-container img {
+                    transform: scale(1.05);
+                }
+
+                .photo-actions {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    display: flex;
+                    gap: 5px;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+
+                .photo-item:hover .photo-actions {
+                    opacity: 1;
+                }
+
+                .photo-action-btn {
+                    background-color: rgba(255, 255, 255, 0.8);
+                    border-radius: 50%;
+                    width: 30px;
+                    height: 30px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #333;
+                }
+
+                .photo-action-btn:hover {
+                    background-color: white;
+                    color: #4CAF50;
+                }
+
+                .favorite-btn.active i {
+                    color: #e74c3c;
+                    font-weight: 900;
+                }
+
+                .photo-info {
+                    padding: 12px;
+                }
+
+                .photo-date {
+                    font-size: 12px;
+                    color: #666;
+                    margin-bottom: 5px;
+                }
+
+                .photo-caption {
+                    font-weight: 500;
+                    margin-bottom: 8px;
+                }
+
+                .photo-tags {
+                    display: flex;
+                    gap: 5px;
+                    flex-wrap: wrap;
+                }
+
+                .photo-tag {
+                    background-color: #e8f5e9;
+                    color: #4CAF50;
+                    padding: 3px 8px;
+                    border-radius: 12px;
+                    font-size: 12px;
+                }
+
+                .add-photo {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #f5f5f5;
+                    border: 2px dashed #ccc;
+                    cursor: pointer;
+                }
+
+                .add-photo-content {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    color: #666;
+                }
+
+                .add-photo i {
+                    font-size: 24px;
+                    margin-bottom: 8px;
+                }
+
+                .add-photo:hover {
+                    background-color: #f0f0f0;
+                    border-color: #4CAF50;
+                    color: #4CAF50;
+                }
+
+                .photo-timeline-nav {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 15px;
+                }
+
+                .timeline-dots {
+                    display: flex;
+                    gap: 8px;
+                }
+
+                .timeline-dots .dot {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background-color: #ddd;
+                    cursor: pointer;
+                }
+
+                .timeline-dots .dot.active {
+                    background-color: #4CAF50;
+                }
+
+                /* Custom scrollbar */
+                .photo-timeline::-webkit-scrollbar {
+                    height: 6px;
+                }
+
+                .photo-timeline::-webkit-scrollbar-track {
+                    background: #f1f1f1;
+                    border-radius: 10px;
+                }
+
+                .photo-timeline::-webkit-scrollbar-thumb {
+                    background: #c1c1c1;
+                    border-radius: 10px;
+                }
+
+                .photo-timeline::-webkit-scrollbar-thumb:hover {
+                    background: #a8a8a8;
+                }
+            </style>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Elementos do DOM
+                    const photoItems = document.querySelectorAll('.photo-item:not(.add-photo)');
+                    const addPhotoBtn = document.querySelector('.add-photo');
+                    const photoUpload = document.getElementById('photo-upload');
+                    const prevBtn = document.getElementById('prev-photo');
+                    const nextBtn = document.getElementById('next-photo');
+                    const viewAllBtn = document.getElementById('view-all-photos');
+                    const dots = document.querySelectorAll('.timeline-dots .dot');
+                    const favoriteBtns = document.querySelectorAll('.favorite-btn');
+
+                    // Controle do carrossel
+                    let currentPhotoIndex = 0;
+
+                    // Event listeners
+                    addPhotoBtn.addEventListener('click', function () {
+                        photoUpload.click();
+                    });
+
+                    photoUpload.addEventListener('change', function (e) {
+                        if (e.target.files && e.target.files[0]) {
+                            const reader = new FileReader();
+                            reader.onload = function (event) {
+                                // Criar novo item de foto
+                                const newPhotoItem = document.createElement('div');
+                                newPhotoItem.className = 'photo-item';
+                                newPhotoItem.innerHTML = `
+                    <div class="photo-container">
+                        <img src="${event.target.result}" alt="Nova foto">
+                        <div class="photo-actions">
+                            <button class="btn-icon photo-action-btn favorite-btn"><i class="far fa-heart"></i></button>
+                            <button class="btn-icon photo-action-btn zoom-btn"><i class="fas fa-search-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="photo-info">
+                        <div class="photo-date">${new Date().toLocaleDateString('pt-BR')}</div>
+                        <div class="photo-caption">Nova foto adicionada</div>
+                    </div>
+                `;
+
+                                // Adicionar antes do botão "Adicionar foto"
+                                addPhotoBtn.parentNode.insertBefore(newPhotoItem, addPhotoBtn);
+
+                                // Atualizar dots de navegação
+                                updateTimelineDots();
+                            };
+                            reader.readAsDataURL(e.target.files[0]);
+                        }
+                    });
+
+                    // Navegação do carrossel
+                    prevBtn.addEventListener('click', scrollToPrevPhoto);
+                    nextBtn.addEventListener('click', scrollToNextPhoto);
+
+                    // Visualizar todas as fotos
+                    viewAllBtn.addEventListener('click', function () {
+                        alert('Abrir galeria completa de fotos!');
+                        // Implementar lógica para abrir modal com todas as fotos
+                    });
+
+                    // Favoritar fotos
+                    favoriteBtns.forEach(btn => {
+                        btn.addEventListener('click', function () {
+                            this.classList.toggle('active');
+                            this.querySelector('i').classList.toggle('fas');
+                            this.querySelector('i').classList.toggle('far');
+                        });
+                    });
+
+                    // Zoom nas fotos (simplificado)
+                    document.querySelectorAll('.zoom-btn').forEach(btn => {
+                        btn.addEventListener('click', function () {
+                            const imgSrc = this.closest('.photo-item').querySelector('img').src;
+                            alert(`Ampliar foto: ${imgSrc}`);
+                            // Implementar lightbox ou modal de zoom
+                        });
+                    });
+
+                    // Navegação pelos dots
+                    dots.forEach((dot, index) => {
+                        dot.addEventListener('click', function () {
+                            scrollToPhoto(index);
+                        });
+                    });
+
+                    // Funções
+                    function scrollToPrevPhoto() {
+                        currentPhotoIndex = (currentPhotoIndex > 0) ? currentPhotoIndex - 1 : photoItems.length - 1;
+                        scrollToPhoto(currentPhotoIndex);
+                    }
+
+                    function scrollToNextPhoto() {
+                        currentPhotoIndex = (currentPhotoIndex < photoItems.length - 1) ? currentPhotoIndex + 1 : 0;
+                        scrollToPhoto(currentPhotoIndex);
+                    }
+
+                    function scrollToPhoto(index) {
+                        photoItems.forEach(item => item.classList.remove('featured'));
+                        photoItems[index].classList.add('featured');
+                        photoItems[index].scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'nearest',
+                            inline: 'center'
+                        });
+                        updateActiveDot(index);
+                    }
+
+                    function updateActiveDot(index) {
+                        dots.forEach(dot => dot.classList.remove('active'));
+                        if (dots[index]) {
+                            dots[index].classList.add('active');
+                        }
+                    }
+
+                    function updateTimelineDots() {
+                        const dotsContainer = document.querySelector('.timeline-dots');
+                        dotsContainer.innerHTML = '';
+
+                        document.querySelectorAll('.photo-item:not(.add-photo)').forEach((_, index) => {
+                            const dot = document.createElement('span');
+                            dot.className = 'dot' + (index === 0 ? ' active' : '');
+                            dot.addEventListener('click', () => scrollToPhoto(index));
+                            dotsContainer.appendChild(dot);
+                        });
+                    }
+
+                    // Inicialização
+                    if (photoItems.length > 0) {
+                        photoItems[0].classList.add('featured');
+                    }
+                });
+            </script>
+            <!-- Tips Card -->
+            <section class="card tips-card">
+                <div class="card-header">
+                    <h3><i class="fas fa-lightbulb"></i> Dica do Dia</h3>
+                    <div class="card-actions">
+                        <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="tip-content">
+                        <img src="https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                            alt="Dica" class="tip-image">
+                        <h4>Como melhorar o crescimento do tomate</h4>
+                        <p>Os tomateiros precisam de pelo menos 6-8 horas de sol direto por dia. Remova os brotos
+                            laterais para concentrar a energia da planta nos frutos principais.</p>
+                        <a href="comunidade.html">
+                            <button class="btn-read-more">
+                            Ler mais <i class="fas fa-chevron-right"></i>
+                        </button>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    </main>
+    </div>
+
+
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-left">
+                <img src="img/logowastech.jpeg" alt="Wastech Logo" class="logo" />
+            </div>
+
+            <nav class="footer-nav">
+                <a href="#">Comunidade</a>
+                <a href="#">Sobre Nós</a>
+                <a href="#">Gamificação</a>
+                <a href="#">Página Inicial</a>
+                <a href="#">Dashboard</a>
+            </nav>
+
+            <div class="footer-social">
+                <a href="https://www.instagram.com/wastechpsvs/"><img src="comunidade/svg/insta-icon.svg" alt="Instagram" /></a>
+                <a href="#"><img src="comunidade/svg/yt-icon.svg" alt="YouTube" /></a>
+            </div>
+        </div>
+        <hr class="footer-divider" />
+        <div class="footer-bottom">
+            <p class="copyright">© 2025 WastTech. Todos os Direitos Reservados.</p>
+            <div class="footer-links">
+                <a href="#">Políticas de Privacidade</a>
+                <a href="#">Termos de Serviço</a>
+            </div>
+            <img src="svg/plant-icon.svg" alt="Ícone Planta" class="footer-icon" />
+        </div>
+    </footer>
+
+
+
+    <style>
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: white;
+            padding: 20px 40px;
+            font-family: Arial, sans-serif;
+            border-top: 5px solid #0f3d0f;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            height: 120px;
+        }
+
+        .brand-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #225d22;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            text-decoration: none;
+            color: black;
+            font-weight: 500;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .footer-divider {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid #225d22;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 14px;
+        }
+
+        .copyright {
+            margin: 0;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .footer-icon {
+            height: 70px;
+        }
+    </style>
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const profile = document.querySelector('.profile');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+            const dropdownIcon = document.querySelector('.dropdown-icon');
+
+            profile.addEventListener('click', function (e) {
+                e.stopPropagation();
+                dropdownMenu.classList.toggle('show');
+                dropdownIcon.classList.toggle('rotate');
+            });
+
+            // Fechar o menu quando clicar em qualquer lugar fora
+            document.addEventListener('click', function () {
+                dropdownMenu.classList.remove('show');
+                dropdownIcon.classList.remove('rotate');
+            });
+
+            // Evitar que o menu feche quando clicar nele
+            dropdownMenu.addEventListener('click', function (e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
+
+    <script src="notificações.js"></script>
+
+</body>
+
+</html>

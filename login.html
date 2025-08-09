@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Wastech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="login e cadastro/css/login.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container">
+        <div class="content-wrapper">
+            <div class="image-container">
+                <img src="login e cadastro/images/logo wastech pb.png" alt="Logo Wastech">
+            </div>
+            <div class="form-container">
+                <div class="login-header">
+                    <h1>Bem-vindo de volta</h1>
+                    <p>Entre com sua conta para continuar</p>
+                </div>
+                <div class="login-form">
+                    <form id="loginForm">
+                        <div class="input-group">
+                            <label for="email">E-mail</label>
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" placeholder="seu.email@exemplo.com" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="password">Senha</label>
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" placeholder="••••••••" required>
+                            <span class="toggle-password" onclick="togglePassword()">
+                                <i class="fas fa-eye" id="eyeIcon"></i>
+                            </span>
+                        </div>
+                        <div class="options">
+                            <div class="remember">
+                                <input type="checkbox" id="remember">
+                                <label for="remember">Lembrar-me</label>
+                            </div>
+                            <a href="resetpass.html" class="forgot-password">Esqueceu a senha?</a>
+                        </div>
+                        <a href="dashboard.html">
+                            <button type="button" class="login-button">Entrar</button>
+                        </a>
+                        <div class="signup">
+                            Não tem uma conta? <a href="cadastro.html">Cadastre-se</a>
+                        </div>
+                        <div class="divider">Ou entre com</div>
+                        <div class="social-login">
+                            <div class="social-btn google">
+                                <i class="fab fa-google"></i>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 WastTech - Todos os direitos reservados
+    </footer>
+    <script src="js/login.js"></script>
+</body>
+
+</html>
