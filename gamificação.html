@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WASTECH</title>
-  <link rel="stylesheet" href="gamificação/style.css">
+  <link rel="stylesheet" href="css/gamificação.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="Favicon/favicon.ico" type="image/x-icon" />
 </head>
 <body>
   <header class="top-bar">
     <div class="logo">
-      <img src="Imagens/logo.png" alt="WASTECH Logo">
+      <img src="Imagens/logoverde.png" alt="WASTECH Logo">
     </div>
     <div class="contact-info">
       <span><i class="fas fa-phone"></i> (88) 93423-4323</span>
@@ -23,7 +23,7 @@
       <span><i class="fas fa-bell"></i> Notificações</span>
       <div class="profile-container">
         <div class="profile">
-          <img src="img/leonardowastech.jpg" alt="Usuário">
+          <img src="Imagens/leonardowastech.jpg" alt="Usuário">
           <span>Leonardo <i class="fas fa-chevron-down dropdown-icon"></i></span>
         </div>
         <div class="dropdown-menu">
@@ -50,7 +50,7 @@
     <img src="Imagens/comuunidade.png" alt="">
     <h1>Perfil</h1>
   </div>
-  <div class="logo2">   <img src="Imagens/logo.png" alt="">
+  <div class="logo2">   <img src="Imagens/logoverde.png" alt="">
 </div>
 
 
@@ -60,7 +60,7 @@
         <i class="fas fa-pencil-alt"></i>
       </button>
       <div class="circulo" id="profilePicContainer">
-        <img src="img/leonardowastech.jpg" alt="Foto de perfil" id="profilePic">
+        <img src="Imagens/leonardowastech.jpg" alt="Foto de perfil" id="profilePic">
       </div>
       <div class="dados-centro">
         <p id="userLevel">Nível 3 – Agricultor Verde</p>
@@ -83,7 +83,7 @@
           <span class="close-btn">&times;</span>
           <h2>Editar Perfil</h2>
           <div class="profile-pic-container">
-            <img src="img/leonardowastech.jpg" alt="Foto de perfil" id="profilePicPreview" class="profile-pic-preview">
+            <img src="Imagens/leonardowastech.jpg" alt="Foto de perfil" id="profilePicPreview" class="profile-pic-preview">
             <label for="profile-pic-input" class="profile-pic-label">
               <i class="fas fa-camera"></i> Alterar foto
             </label>
@@ -257,7 +257,7 @@
    <footer class="footer">
   <div class="footer-top">
     <div class="footer-left">
-      <img src="Imagens/logo.png" alt="Wastech Logo" class="logo" />
+      <img src="Imagens/logoverde.png" alt="Wastech Logo" class="logo" />
     </div>
     <nav class="footer-nav">
       <a href="#">Comunidade</a>
@@ -267,8 +267,8 @@
       <a href="#">Dashboard</a>
     </nav>
     <div class="footer-social">
-      <a href="https://www.instagram.com/wastechpsvs/"><img src="comunidade/svg/insta-icon.svg" alt="Instagram" /></a>
-      <a href="#"><img src="comunidade/svg/yt-icon.svg" alt="YouTube" /></a>
+      <a href="https://www.instagram.com/wastechpsvs/"><img src="Favicon/insta-icon.svg" alt="Instagram" /></a>
+      <a href="#"><img src="Favicon/yt-icon.svg" alt="YouTube" /></a>
     </div>
   </div>
   <hr class="footer-divider" />
@@ -441,6 +441,32 @@
 </script>
   
   
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const profile = document.querySelector('.profile');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+            const dropdownIcon = document.querySelector('.dropdown-icon');
+
+            profile.addEventListener('click', function (e) {
+                e.stopPropagation();
+                dropdownMenu.classList.toggle('show');
+                dropdownIcon.classList.toggle('rotate');
+            });
+
+            // Fechar o menu quando clicar em qualquer lugar fora
+            document.addEventListener('click', function () {
+                dropdownMenu.classList.remove('show');
+                dropdownIcon.classList.remove('rotate');
+            });
+
+            // Evitar que o menu feche quando clicar nele
+            dropdownMenu.addEventListener('click', function (e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
+
 </body>
 </html>
 
@@ -450,6 +476,6 @@
 
  
 
-<script src="notificações.js"></script>
+<script src="javascripts/gamificação.js"></script>
 
    
